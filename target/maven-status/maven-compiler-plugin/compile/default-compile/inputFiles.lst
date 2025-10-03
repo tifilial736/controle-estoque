@@ -1,0 +1,14 @@
+/workspaces/controle-estoque/src/main/java/com/estoque/controle/ControleEstoqueApplication.java
+/workspaces/controle-estoque/src/main/java/com/estoque/controle/controller/CategoriaController.java
+/workspaces/controle-estoque/src/main/java/com/estoque/controle/controller/EntradaEstoqueController.java
+/workspaces/controle-estoque/src/main/java/com/estoque/controle/controller/FornecedorController.java
+/workspaces/controle-estoque/src/main/java/com/estoque/controle/controller/HomeController.java
+/workspaces/controle-estoque/src/main/java/com/estoque/controle/controller/ProdutoController.java
+/workspaces/controle-estoque/src/main/java/com/estoque/controle/model/Categoria.java
+/workspaces/controle-estoque/src/main/java/com/estoque/controle/model/EntradaEstoque.java
+/workspaces/controle-estoque/src/main/java/com/estoque/controle/model/Fornecedor.java
+/workspaces/controle-estoque/src/main/java/com/estoque/controle/model/Produto.java
+/workspaces/controle-estoque/src/main/java/com/estoque/controle/repository/CategoriaRepository.java
+/workspaces/controle-estoque/src/main/java/com/estoque/controle/repository/EntradaEstoqueRepository.java
+/workspaces/controle-estoque/src/main/java/com/estoque/controle/repository/FornecedorRepository.java
+/workspaces/controle-estoque/src/main/java/com/estoque/controle/repository/ProdutoRepository.java

@@ -1,0 +1,14 @@
+com/estoque/controle/controller/EntradaEstoqueController.class
+com/estoque/controle/controller/FornecedorController.class
+com/estoque/controle/model/EntradaEstoque.class
+com/estoque/controle/controller/ProdutoController.class
+com/estoque/controle/repository/EntradaEstoqueRepository.class
+com/estoque/controle/model/Categoria.class
+com/estoque/controle/repository/ProdutoRepository.class
+com/estoque/controle/repository/CategoriaRepository.class
+com/estoque/controle/model/Produto.class
+com/estoque/controle/controller/HomeController.class
+com/estoque/controle/ControleEstoqueApplication.class
+com/estoque/controle/repository/FornecedorRepository.class
+com/estoque/controle/controller/CategoriaController.class
+com/estoque/controle/model/Fornecedor.class
