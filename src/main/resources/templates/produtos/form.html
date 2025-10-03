@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Produto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h1>Cadastro de Produto</h1>
+
+<form th:action="@{/produtos/salvar}" th:object="${produto}" method="post">
+    <input type="hidden" th:field="*{id}">
+
+    <div class="form-group">
+        <label>Nome:</label>
+        <input type="text" th:field="*{nome}" required>
+    </div>
+
+    <div class="form-group">
+        <label>Preço:</label>
+        <input type="number" th:field="*{preco}" step="0.01" required>
+    </div>
+
+    <div class="form-group">
+        <label>Fornecedor:</label>
+        <select name="fornecedorId" required>
+            <option value="">Selecione...</option>
+            <option th:each="f : ${fornecedores}"
+                    th:value="${f.id}"
+                    th:text="${f.nome}"
+                    th:selected="${produto.fornecedor != null && produto.fornecedor.id == f.id}">
+            </option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Categoria:</label>
+        <select name="categoriaId" required>
+            <option value="">Selecione...</option>
+            <option th:each="c : ${categorias}"
+                    th:value="${c.id}"
+                    th:text="${c.nome}"
+                    th:selected="${produto.categoria != null && produto.categoria.id == c.id}">
+            </option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Salvar</button>
+    <a href="/produtos" class="btn btn-secondary">Cancelar</a>
+</form>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Categorias</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .btn {
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-warning {
+            background-color: #ffc107;
+            color: black;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+<h1>Categorias</h1>
+
+<a href="/categorias/novo" class="btn btn-primary">Nova Categoria</a>
+<a href="/" class="btn btn-secondary">Voltar ao Menu</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="categoria : ${categorias}">
+        <td th:text="${categoria.id}"></td>
+        <td th:text="${categoria.nome}"></td>
+        <td>
+            <a th:href="@{/categorias/editar/{id}(id=${categoria.id})}" class="btn btn-warning">Editar</a>
+            <a th:href="@{/categorias/excluir/{id}(id=${categoria.id})}"
+               class="btn btn-danger"
+               onclick="return confirm('Deseja realmente excluir?')">Excluir</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
