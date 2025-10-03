@@ -1,14 +1,16 @@
-# Imagem base do OpenJDK 11 (leve)
-FROM openjdk:11-jdk-slim
+FROM eclipse-temurin:17-jdk-alpine as build
+WORKDIR /workspace/app
 
-# Diretório de trabalho dentro do container
+COPY mvnw .
+COPY .mvn .mvn
+COPY pom.xml .
+COPY src src
+
+RUN chmod +x ./mvnw
+RUN ./mvnw install -DskipTests
+
+FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
-
-# Copia o JAR da aplicação
-COPY target/controle-estoque-0.0.1-SNAPSHOT.jar app.jar
-
-# Expõe a porta que a aplicação vai usar
+COPY --from=build /workspace/app/target/*.jar app.jar
 EXPOSE 8080
-
-# Comando para rodar a aplicação
 ENTRYPOINT ["java","-jar","app.jar"]
